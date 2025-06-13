@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 
 const syncDeviceSchema = new mongoose.Schema(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    device: { type: mongoose.Schema.Types.ObjectId, ref: "Device" },
-    status: { type: String, enum: ["active", "inactive"], default: "active" },
+    device_id: { type: mongoose.Schema.Types.ObjectId },
+    timestamp: { type: Date, default: Date.now },
+    total_files_synced: { type: Number, default: 0 },
+    total_errors: { type: Number, default: 0 },
+    internet_speed: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
