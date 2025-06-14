@@ -1,0 +1,36 @@
+optimize the system for 100k devices.
+
+Backend/API Layer
+
+Horizontal Scaling using Kubernetes.
+
+Load Balancer in front (e.g., NGINX, AWS ELB)
+
+
+
+Queue System
+
+BullMQ or RabbitMQ or kafka
+
+retries on failure 
+
+
+
+Database Layer
+
+MongoDB clones , Replica for availability
+
+
+Caching 
+
+Redis Caching for repeat queries
+
+
+
+DevOps
+
+CI/CD using GitHub Actions or Jenkins
+
+Environment Config via dotenv 
+
+Containerized with Docker 

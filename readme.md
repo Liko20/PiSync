@@ -80,3 +80,59 @@ Response
     "internet_speed": 9
   }
 ]
+
+
+🧪 Schema Design
+
+const syncDeviceSchema = new mongoose.Schema(
+  {
+    device_id: { type: String, index: true, required: true },
+    timestamp: { type: Date, default: Date.now },
+    total_files_synced: { type: Number, default: 0 },
+    total_errors: { type: Number, index: true, default: 0 },
+    internet_speed: { type: Number, default: 0 },
+  }
+);
+
+
+
+🧪 Scaling Plan
+
+optimize the system for 100k devices.
+
+
+Backend/API Layer
+
+Horizontal Scaling using Kubernetes.
+
+Load Balancer in front (e.g., NGINX, AWS ELB)
+
+
+
+Queue System
+
+BullMQ or RabbitMQ or kafka
+
+retries on failure
+
+
+
+Database Layer
+
+MongoDB clones , Replica for availability
+
+
+Caching
+
+Redis Caching for repeat queries
+
+
+
+DevOps
+
+CI/CD using GitHub Actions or Jenkins
+
+Environment Config via dotenv
+
+Containerized with Docker
+```
