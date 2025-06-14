@@ -23,7 +23,7 @@ MongoDB clones , Replica for availability
 
 Caching 
 
-Redis Caching for repeat queries (e.g., failure stats)
+Redis Caching for repeat queries
 
 
 
