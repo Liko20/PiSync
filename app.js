@@ -1,13 +1,14 @@
 const express = require("express");
-const setupMiddleware = require("./middleware/config");
 const connectDB = require("./config");
+const setupMiddleware = require("./middleware/config/config");
+const syncQueue = require("./queue/queue");
+const handleSyncEvent = require("./handleSyncEvent/handleSyncEvent");
 
 const app = express();
-connectDB();
 setupMiddleware(app);
-
+connectDB();
 app.use("/sync-event", require("./routes/syncEvent"));
-app.use(("/devices"), require("./routes/devices"));
+app.use("/devices", require("./routes/devices"));
 
 app.get("/", (req, res) => {
   res.send("hello");
